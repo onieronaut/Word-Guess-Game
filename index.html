@@ -4,25 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="assets/javascript/game.js" type="text/javascript"></script>
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <title>Word Guess Game</title>
 </head>
 <body>
     
-<div class="container">
-    <p>Press any key to get started!</p>
+    <div class="head">
+        <h1>ANIMAL HANGMAN</h1>
+    </div>
+    
+    <div id="animalImage">
+    </div>
+    
+    <div class="container">
+        
+        <div>
+            <p class="box">Press any key to get started!</p>
+        </div>
+        
+        <div>
+            <p class="box" id="correct"></p>
+        </div>
+        
+        <div class="box">
+            <p>Wins: </p> <p id="winCount">0</p>
+        </div>
+        
+        <div class="box">
+            <p>Number of Guesses Remaining: </p> <p id="guesses">10</p>
+        </div>
+        
+        <div class="box">
+            <p>Letters Already Guessed: </p> <p id="already"></p>
+        </div>
+        
 
-    <p id="correct"></p>
-
-    <p>Wins: </p> <p id="winCount">0</p>
-
-    <p>Number of Guesses Remaining: </p> <p id="guesses">12</p>
-    
-    <p>Letters Already Guessed: </p> <p id="already"></p>
-    
-    
-    
-    
-</div>
+        
+        
+    </div>
 </body>
+<script src="assets/javascript/game.js" type="text/javascript"></script>
 </html>
