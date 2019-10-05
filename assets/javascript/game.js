@@ -36,9 +36,10 @@ function resetWord() {
 
 // Main function - Checking user guesses and displaying correct/wrong letters
 document.onkeyup = function(event) {
+    document.getElementById("notifications").innerHTML = "";
     // Checking if user input is a letter a - z
     if (event.keyCode > 90 || event.keyCode < 65) {
-        console.log("Please select a letter A through Z");
+        document.getElementById("notifications").innerHTML = "Please select a letter a through z";
         return;
     }
     // Checking for correct guesses
@@ -52,7 +53,7 @@ document.onkeyup = function(event) {
     }   
     // Checking for already guessed letter
     if (guessedLetters.indexOf(userGuess) > -1) {
-        console.log("already guessed this letter");
+        document.getElementById("notifications").innerHTML = "You already guessed " + userGuess;
         return
     }
     
@@ -70,6 +71,7 @@ document.onkeyup = function(event) {
     
     // Checking for win condition
     if (correctLetters.indexOf("_") === -1) {
+        document.getElementById("notifications").innerHTML = "You win!";
         document.getElementById("animalImage").innerHTML = '<img src="assets/images/' + selectedWord + '.jpg"/>'
         wins++;
         selectWord();
@@ -81,7 +83,7 @@ document.onkeyup = function(event) {
     }
     // Checking for loss condition
     if (guessesLeft < 1) {
-        console.log("You lose!");
+        document.getElementById("notifications").innerHTML = "You lose! The word was " + selectedWord;
         selectWord();
         resetWord();
         guessesLeft = 10;

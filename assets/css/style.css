@@ -1,26 +1,30 @@
 .container {
     margin: 0 auto;
-    width: 75%;
+    width: 50%;
     text-align: center;
     background: rgb(139, 128, 65);
-    margin-top:
+    border: 1px solid #014b32;
 }
 
 body {
-    background: rgb(160, 103, 51);
+    background-image: url("../images/pattern.jpg");
     font-family: "Arial", Helvetica, sans-serif;
     color: #ffffff;
+    margin: 0;
 }
 
 .box {
     padding: 20px;
-    border: 1px solid rgb(16, 71, 2);
+    border: 2px solid #014b32;
     display: inline-block;
     margin: 10px;
 }
 
 .head {
-    background: green;
+    font-family: 'Luckiest Guy', cursive;
+    letter-spacing: 5px;
+    font-size: 28px;
+    background: #014b32;
     width: 100%;
     display: block;
     text-align: center;
@@ -30,10 +34,27 @@ body {
 
 #animalImage{
     text-align: center;
+    padding: 20px;
 }
 
 img {
-    padding: 5px;
-    max-width: 75%;
+    margin: 5px;
+    max-width: 50%;
     height: auto;
+    border: 2px solid #014b32;
+}
+
+#correct {
+    font-weight: bold;
+}
+
+#wins,
+#guess,
+#letters {
+    width: 30%;
+    margin: 5px auto;
+}
+
+#underline {
+    text-decoration: underline;
 }
