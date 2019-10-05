@@ -2,16 +2,12 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
     selectWord();
     resetWord();
-    var displayImage = document.getElementById("animalImage");
-    displayImage.src = "assets/images/" + selectedWord + ".jpg";
-    console.log(displayImage.src);
-    displayImage.innerHTML = <img src="displayImage.src" />
 });
 
 var words = ["aardvark", "cheetah", "chimpanzee", "platypus", "octopus",
 "zebra", "falcon", "beetle", "grasshopper", "rhinocerous",
 "jaguar", "parrot", "whale", "pelican", "ostrich", "penguin",
-"kangaroo", "wombat", "lizard", "hyena", "raccoon"];
+"kangaroo", "wombat", "gecko", "hyena", "raccoon"];
 
 console.log(words);
 var wins = 0;
@@ -54,51 +50,45 @@ document.onkeyup = function(event) {
             document.getElementById("correct").innerHTML = correctLetters.join(" ");
         } 
     }   
-        // Checking for already guessed letter
-        if (guessedLetters.indexOf(userGuess) > -1) {
-            console.log("already guessed this letter");
-            return
-        }
-
-        // Checking for incorrect guesses
-        if (selectedWord.indexOf(userGuess) === -1) {
-                guessesLeft--;
-                guessedLetters.push(userGuess);
-                document.getElementById("already").innerHTML = guessedLetters.join(" ");
-                document.getElementById("guesses").innerHTML = guessesLeft;            
-        } else {
-            guessedLetters.push(userGuess);
-            document.getElementById("already").innerHTML = guessedLetters.join(" ");
-            console.log(guessedLetters);
-        }
-
-        // Checking for win condition
-        if (correctLetters.indexOf("_") === -1) {
-            wins++;
-            selectWord();
-            resetWord();
-            guessesLeft = 10;
-            document.getElementById("winCount").innerHTML = wins;
-            document.getElementById("guesses").innerHTML = guessesLeft;
-            document.getElementById("already").innerHTML = "";
-        }
-        // Checking for loss condition
-        if (guessesLeft < 1) {
-            console.log("You lose!");
-            selectWord();
-            resetWord();
-            guessesLeft = 10;
-            document.getElementById("guesses").innerHTML = guessesLeft;
-            document.getElementById("already").innerHTML = "";
-        }
+    // Checking for already guessed letter
+    if (guessedLetters.indexOf(userGuess) > -1) {
+        console.log("already guessed this letter");
+        return
+    }
+    
+    // Checking for incorrect guesses
+    if (selectedWord.indexOf(userGuess) === -1) {
+        guessesLeft--;
+        guessedLetters.push(userGuess);
+        document.getElementById("already").innerHTML = guessedLetters.join(" ");
+        document.getElementById("guesses").innerHTML = guessesLeft;            
+    } else {
+        guessedLetters.push(userGuess);
+        document.getElementById("already").innerHTML = guessedLetters.join(" ");
+        console.log(guessedLetters);
+    }
+    
+    // Checking for win condition
+    if (correctLetters.indexOf("_") === -1) {
+        document.getElementById("animalImage").innerHTML = '<img src="assets/images/' + selectedWord + '.jpg"/>'
+        wins++;
+        selectWord();
+        resetWord();
+        guessesLeft = 10;
+        document.getElementById("winCount").innerHTML = wins;
+        document.getElementById("guesses").innerHTML = guessesLeft;
+        document.getElementById("already").innerHTML = "";
+    }
+    // Checking for loss condition
+    if (guessesLeft < 1) {
+        console.log("You lose!");
+        selectWord();
+        resetWord();
+        guessesLeft = 10;
+        document.getElementById("guesses").innerHTML = guessesLeft;
+        document.getElementById("already").innerHTML = "";
+    }
 }
-
-
-// var displayImage = new Image (250, 250);
-// displayImage.src = "assets/images/" + selectedWord + ".jpg";
-// console.log(displayImage.src);
-document.getElementById("animalImage").innerHTML = '<img src="assets/images/falcon.jpg"/>'
-                                    //   .appendChild()
 
 
 
